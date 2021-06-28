@@ -1,0 +1,28 @@
+<%- include('header') -%>
+<div class="header-box">
+    <h1 class="heading">
+        <%= listHeading %>
+    </h1>
+    <p style="display: none;" id="title-giver"><%= title %></p>
+
+</div>
+
+<div class="body-box">
+    <% listOfTaks.forEach((value) => { %>
+        <div class="item">
+            <input type="checkbox" onclick="checkEvent(this, '/remove')">
+            <p>
+                <%= value.task %>
+            </p>
+            <button onclick="checkEvent(this, '/remove')" type="submit" class="trash">
+                <i class="fa fa-trash"></i>
+            </button>
+        </div>
+    <% }) %>
+
+            <form action='/' method="post">
+                <input type="text" name="task" placeholder="New Item" autocomplete="off" />
+                <button type="submit" class="add">+</button>
+            </form>
+</div>
+<%- include('footer') -%>
